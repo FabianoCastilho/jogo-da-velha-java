@@ -1,3 +1,6 @@
+/*
+ * @author FabianoCastilho
+ */
 package application;
 
 public class IniciarJogo {
