@@ -80,31 +80,32 @@ public class Jogo {
       return opcao;
      }
 	 public boolean Jogar(){
-        if(tabuleiro.verificarGanhador() == 0 ){
+       if(!tabuleiro.jogoEmpatado() && tabuleiro.verificarGanhador() == 0 ){
             System.out.println("_______________________");
             System.out.println("\nRodada "+ rodada);
             System.out.println("É a vez do jogador " + vez() );
-            
+            tabuleiro.exibirTabuleiro();
             if(vez() == 1) {
                 jogador1.jogar(tabuleiro);
             }
             else
                 jogador2.jogar(tabuleiro);
-           
-            if(tabuleiro.jogoEmpatado()){
-                System.out.println("Tabuleiro Completo. Jogo empatado");
-                return false;
-            }
+          
+          
             vez++;
             rodada++;
             return true;
-        } else{
-            if(tabuleiro.verificarGanhador() == -1 )
-                System.out.println("Jogador 1 ganhou!");
-            else
-                System.out.println("Jogador 2 ganhou!");
+        } else if(tabuleiro.verificarGanhador() == -1 ) {
+            System.out.println("Jogador 1 ganhou!");
             return false;
+        } else if(tabuleiro.verificarGanhador() == -2) { 
+            System.out.println("Jogador 2 ganhou!");
+            return false;
+        } else if(tabuleiro.jogoEmpatado()){
+        	System.out.println("Tabuleiro Completo. Jogo empatado");
+       	 	return false;
         }
+       return true;
 	 } 
 	 public int vez(){
         if(vez % 2 == 1)

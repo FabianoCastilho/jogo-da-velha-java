@@ -9,6 +9,7 @@ public class Tabuleiro {
 
 	public Tabuleiro() {
 		iniciarTabuleiro();
+		//exibirTabuleiro();
 		
 	}
 	
@@ -23,7 +24,7 @@ public class Tabuleiro {
 	}
 	public void exibirTabuleiro() {
 		for(int i = 0; i < 3; i++) {
-			if(i ==1 || i == 2) {
+			if(i == 1 || i == 2) {
 				System.out.println();
 				System.out.println("----+-----+----");
 			}
@@ -147,27 +148,27 @@ public class Tabuleiro {
 		if( (tabuleiro[0][0] == tabuleiro[1][1]) && (tabuleiro[0][0] == tabuleiro[2][2]) && (tabuleiro[1][1] == tabuleiro[2][2]) && tabuleiro[0][0] == -1) {
          return -1;
 		}
-     if( (tabuleiro[0][0] == tabuleiro[1][1]) && (tabuleiro[0][0] == tabuleiro[2][2]) && (tabuleiro[1][1] == tabuleiro[2][2]) && tabuleiro[0][0] == -2) {
+		if( (tabuleiro[0][0] == tabuleiro[1][1]) && (tabuleiro[0][0] == tabuleiro[2][2]) && (tabuleiro[1][1] == tabuleiro[2][2]) && tabuleiro[0][0] == -2) {
          return -2;
-     }
-     if( (tabuleiro[0][2] == tabuleiro[1][1]) && ( tabuleiro[0][2] == tabuleiro[2][0]) && (tabuleiro[1][1] == tabuleiro[2][0]) && tabuleiro[0][2] == -1) {
+		}
+		if( (tabuleiro[0][2] == tabuleiro[1][1]) && ( tabuleiro[0][2] == tabuleiro[2][0]) && (tabuleiro[1][1] == tabuleiro[2][0]) && tabuleiro[0][2] == -1) {
          return -1;
-     }
-     if( (tabuleiro[0][2] == tabuleiro[1][1]) && ( tabuleiro[0][2] == tabuleiro[2][0]) && (tabuleiro[1][1] == tabuleiro[2][0]) && tabuleiro[0][2] == -2) {
+		}
+		if( (tabuleiro[0][2] == tabuleiro[1][1]) && ( tabuleiro[0][2] == tabuleiro[2][0]) && (tabuleiro[1][1] == tabuleiro[2][0]) && tabuleiro[0][2] == -2) {
          return -2;
-     }
+		}
      return 0;
 	}
 	public boolean jogoEmpatado() {
 		
-		int contador = 1;
+		int contador = 9;
 		
 		for(int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				if(tabuleiro[i][j] == -1 || tabuleiro[i][j] == -2) {
-					contador ++;
+					contador --;
 					
-				if (contador > 9 ) {
+				if (contador == 0 ) {
 				    return true;		
 				
 				}
