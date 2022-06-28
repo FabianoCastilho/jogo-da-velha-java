@@ -8,8 +8,9 @@ public class ComputadorEasy extends Jogador {
 	public ComputadorEasy(int jogador) {
 		super(jogador);
 		this.jogador = jogador;
-		System.out.println("Jogador Computador Easy Criado.");
 		System.out.println();
+		System.out.println("Jogador Computador Easy Criado.");
+		
 	}
 	@Override
 	public void jogar(Tabuleiro tabuleiro) {
@@ -23,7 +24,6 @@ public class ComputadorEasy extends Jogador {
 			posicaoJogada = 8;
 			
 			if(!tabuleiro.validarJogada(posicaoJogada)) {	
-			
 				posicaoJogada = 1;
 			}
 			if(!tabuleiro.validarJogada(posicaoJogada)) {
@@ -50,10 +50,8 @@ public class ComputadorEasy extends Jogador {
 			}
 			if(!tabuleiro.validarJogada(posicaoJogada)) {
 				posicaoJogada = 7;
-			
 			}		
 		}while(!tabuleiro.validarJogada(posicaoJogada));
 		System.out.println("Posição jogada = " + posicaoJogada);
 	}
-
 }

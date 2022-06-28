@@ -8,11 +8,8 @@ public class Tabuleiro {
 	private Integer[][] tabuleiro = new Integer[3][3];
 
 	public Tabuleiro() {
-		iniciarTabuleiro();
-		//exibirTabuleiro();
-		
+		iniciarTabuleiro();		
 	}
-	
 	public void iniciarTabuleiro() {
 		int p = 1;
 		for(int i = 0; i < 3; i++) {
@@ -29,61 +26,59 @@ public class Tabuleiro {
 				System.out.println("----+-----+----");
 			}
 			for(int j = 0; j < 3; j++) {
-				if (tabuleiro[i][j] == -1) {
+				if (tabuleiro[i][j] == -1) 
 					System.out.print(" X ");
-					
-				}
-				else if(tabuleiro[i][j] == -2) {
+	
+				else if(tabuleiro[i][j] == -2) 
 					System.out.print(" O ");
-				}
-				else {
+				
+				else 
 					System.out.print(" " + tabuleiro[i][j] + " ");  
-				}
-				if ( j == 0 || j == 1) {
+				
+				if ( j == 0 || j == 1) 
 					System.out.print(" | ");
-				}
+				
 			}
 		}
 		System.out.println();
 	}
 	 public int getPosicao(int[] posicao){
 	        return tabuleiro[posicao[0]][posicao[1]];
-	 }
-	 
+	 } 
 	 public void setPosicao( int jogador, Integer posicaoJogada, int[] posicao){
-	        if(jogador == 1) {
-	        	if (posicaoJogada == 1) {
-					posicao[0] = 0;
-					posicao[1] = 0;
-				} else if (posicaoJogada == 2) {
-					posicao[0] = 0;
-					posicao[1] = 1;
-				} else if (posicaoJogada == 3) {
-					posicao[0] = 0;
-					posicao[1] = 2;
-				} else if (posicaoJogada == 4) {
-					posicao[0] = 1;
-					posicao[1] = 0;
-				} else if (posicaoJogada == 5) {
-					posicao[0] = 1;
-					posicao[1] = 1;
-				} else if (posicaoJogada == 6) {
-					posicao[0] = 1;
-					posicao[1] = 2;
-				} else if (posicaoJogada == 7) {
-					posicao[0] = 2;
-					posicao[1] = 0;
-				} else if (posicaoJogada == 8) {
-					posicao[0] = 2;
-					posicao[1] = 1;
-				} else if (posicaoJogada == 9) {
-					posicao[0] = 2;
-					posicao[1] = 2;
-				}
-	            tabuleiro[posicao[0]][posicao[1]] = -1;
-	        }
-         else if(jogador == 2) {	  
-         	if (posicaoJogada == 1) {
+        if(jogador == 1) {
+        	if (posicaoJogada == 1) {
+				posicao[0] = 0;
+				posicao[1] = 0;
+			} else if (posicaoJogada == 2) {
+				posicao[0] = 0;
+				posicao[1] = 1;
+			} else if (posicaoJogada == 3) {
+				posicao[0] = 0;
+				posicao[1] = 2;
+			} else if (posicaoJogada == 4) {
+				posicao[0] = 1;
+				posicao[1] = 0;
+			} else if (posicaoJogada == 5) {
+				posicao[0] = 1;
+				posicao[1] = 1;
+			} else if (posicaoJogada == 6) {
+				posicao[0] = 1;
+				posicao[1] = 2;
+			} else if (posicaoJogada == 7) {
+				posicao[0] = 2;
+				posicao[1] = 0;
+			} else if (posicaoJogada == 8) {
+				posicao[0] = 2;
+				posicao[1] = 1;
+			} else if (posicaoJogada == 9) {
+				posicao[0] = 2;
+				posicao[1] = 2;
+			}
+            tabuleiro[posicao[0]][posicao[1]] = -1;
+        }
+        else if(jogador == 2) {	  
+	     	if (posicaoJogada == 1) {
 					posicao[0] = 0;
 					posicao[1] = 0;
 				} else if (posicaoJogada == 2) {
@@ -112,19 +107,17 @@ public class Tabuleiro {
 					posicao[1] = 2;
 				}
 	            tabuleiro[posicao[0]][posicao[1]] = -2;
-         
-        }
-	       exibirTabuleiro();
+	            }
+       exibirTabuleiro();
 	}
 	public boolean validarJogada(Integer posicaoJogada) {
-			for(int i = 0; i < 3; i++) {
-				for (int j = 0; j < 3; j++) {
-					if(tabuleiro[i][j].equals(posicaoJogada)){
-						return true;
-					}
-				}
-			} 
-			return false;
+		for(int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if(tabuleiro[i][j].equals(posicaoJogada))
+					return true;
+			}
+		} 
+		return false;
 	}
 	public int verificarGanhador() {		
 		for (int i = 0 ; i < 3; i ++) { 
@@ -165,15 +158,11 @@ public class Tabuleiro {
 		
 		for(int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if(tabuleiro[i][j] == -1 || tabuleiro[i][j] == -2) {
-					contador --;
-					
-				if (contador == 0 ) {
+				if(tabuleiro[i][j] == -1 || tabuleiro[i][j] == -2) 
+					contador --;	
+				if (contador == 0 ) 
 				    return true;		
-				
-				}
 			}
-		}
 		}
 	return false;
 	}

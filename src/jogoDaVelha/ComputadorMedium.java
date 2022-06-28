@@ -2,18 +2,15 @@
  * @author FabianoCastilho
  */
 package jogoDaVelha;
-
 import java.util.Random;
 
 public class ComputadorMedium extends Jogador{
 	
-	
 	public ComputadorMedium(int jogador) {
 		super(jogador);
 		this.jogador = jogador;
-		System.out.println("Jogador Computador Medium Criado.");
 		System.out.println();
-		
+		System.out.println("Jogador Computador Medium Criado.");		
 	}
 	@Override
 	public void jogar(Tabuleiro tabuleiro) {
@@ -29,5 +26,4 @@ public class ComputadorMedium extends Jogador{
 		}while(!tabuleiro.validarJogada(posicaoJogada));
 		System.out.println("Posição jogada = " + posicaoJogada);
 	}
-
 }
